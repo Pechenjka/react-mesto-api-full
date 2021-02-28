@@ -1,0 +1,37 @@
+{
+  "name": "mesto-express",
+  "version": "1.0.0",
+  "description": "mesto back-end",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PetyaLobachev/express-mesto.git"
+  },
+  "author": "Petr Lobachev <petya.lobachev@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PetyaLobachev/express-mesto/issues"
+  },
+  "homepage": "https://github.com/PetyaLobachev/express-mesto#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "celebrate": "^13.0.4",
+    "express": "^4.17.1",
+    "express-winston": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.18",
+    "validator": "^13.5.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}

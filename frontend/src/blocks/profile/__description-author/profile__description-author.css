@@ -1,0 +1,12 @@
+.profile__description-author {
+  max-width: 336px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-self: baseline;
+}
+@media screen and (max-width: 602px) {
+  .profile__description-author {
+    justify-content: center;
+  }
+}

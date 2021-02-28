@@ -1,0 +1,11 @@
+.content {
+  margin: 0 auto;
+  max-width: 882px;
+}
+@media screen and (max-width: 602px) {
+  .content {
+    max-width: 282px;
+    flex-direction: column;
+    margin: 0 auto 48px;
+  }
+}

@@ -1,0 +1,11 @@
+.grid-cards {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 920px) {
+  .grid-cards {
+    max-width: 582px;
+    margin: 0 auto 0;
+  }
+}

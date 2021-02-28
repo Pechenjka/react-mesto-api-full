@@ -1,0 +1,142 @@
+@media screen and (max-width: 602px) {
+  .burger-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-width: 602px) {
+  .burger-menu_active {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media screen and (max-width: 602px) {
+  .burger-menu__content {
+    position: absolute;
+    width: 282px;
+    height: 84px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.burger-menu__button {
+  display: none;
+}
+@media screen and (max-width: 602px) {
+  .burger-menu__button {
+    display: block;
+    height: 20px;
+    width: 24px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: #0000;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-position: center;
+    outline: none;
+  }
+}
+.burger-menu__button:hover {
+  opacity: 0.6;
+  transition: all 0.4s;
+}
+.burger-menu__button_close {
+  background-image: url("../../images/burger-menu-icon-2.svg");
+}
+
+.burger-menu__button_active {
+  background-image: url("../../images/burger-menu-icon-close.svg");
+  height: 24px;
+  transform: rotate(90deg);
+}
+
+.burger-menu__container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 602px) {
+  .burger-menu__container {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    height: 84px;
+    transform: translateY(-100%);
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    transition: all 0.4s;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 auto;
+  }
+}
+.burger-menu__container_active {
+  transform: translate(0);
+}
+
+.burger-menu__wrapper {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.burger-menu__wrapper:last-of-type {
+  margin: 0;
+  padding: 0;
+}
+
+.burger-menu__email {
+  margin: 0;
+  text-decoration: none;
+  font-family: "Inter";
+  font-weight: 500px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 602px) {
+  .burger-menu__email {
+    display: block;
+    width: 150px;
+    margin: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+.burger-menu__exitButton {
+  display: block;
+  margin: 0 20px 0 0;
+  padding: 0;
+  background-color: #000000;
+  margin-left: 24px;
+  text-decoration: none;
+  font-family: Inter;
+  font-weight: normal;
+  font-size: 18;
+  color: #a9a9a9;
+  border: 0;
+  outline: none;
+}
+.burger-menu__exitButton:hover {
+  opacity: 0.6;
+  transition: 0.3s linear 0s;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 602px) {
+  .burger-menu__exitButton {
+    margin-left: 0;
+  }
+}

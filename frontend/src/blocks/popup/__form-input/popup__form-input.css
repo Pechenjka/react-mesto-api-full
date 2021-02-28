@@ -1,0 +1,7 @@
+.popup__form-input {
+  padding: 0;
+  border: 0;
+}
+.popup__form-input:last-of-type {
+  margin: 0;
+}

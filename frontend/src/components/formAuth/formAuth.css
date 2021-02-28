@@ -1,0 +1,197 @@
+.formauth__container {
+  background-color: #000000;
+}
+
+@media screen and (max-width: 920px) {
+  .formauth__container {
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+}
+.formauth__page {
+  max-width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.formauth__header {
+  max-width: 882px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  border-bottom: 1px solid rgba(54, 54, 54, 0.7);
+}
+@media screen and (max-width: 425px) {
+  .formauth__header {
+    max-height: 84px;
+  }
+}
+.formauth__header-logo {
+  display: block;
+  align-self: center;
+  justify-self: flex-start;
+}
+@media screen and (max-width: 425px) {
+  .formauth__header-logo {
+    max-width: 36%;
+  }
+}
+.formauth__header-link {
+  display: block;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 22px;
+  font-weight: normal;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Inter";
+  align-self: center;
+  justify-self: flex-end;
+}
+
+@media screen and (max-width: 425px) {
+  .formauth__header-link {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+.formauth__header-link:hover {
+  opacity: 0.6;
+  transition: 0.2s linear 0s;
+}
+
+.formauth__main {
+  display: flex;
+  justify-content: center;
+}
+
+.formauth__main-container {
+  width: 358px;
+}
+
+@media screen and (max-width: 358px) {
+  .formauth__main-container {
+    max-width: 100%;
+  }
+}
+.formauth__main-title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  font-style: normal;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Inter";
+  margin: 60px auto 50px;
+}
+@media screen and (max-width: 425px) {
+  .formauth__main-title {
+    margin: 40px auto;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.formauth__main-form {
+  display: flex;
+  flex-direction: column;
+}
+.formauth__main-form-fieldset {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 0;
+}
+.formauth__main-form-input {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 30px;
+  border: 0;
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: normal;
+  font-style: normal;
+  border-bottom: 2px solid #cccccc;
+  outline: none;
+}
+.formauth__main-form-input:nth-child(1) {
+  margin-top: 0;
+}
+.formauth__main-form-button {
+  margin: 215px 0 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  font-family: "Inter";
+  height: 50px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+  background-color: #ffffff;
+}
+.formauth__main-form-button:hover {
+  transition: 0.2s linear 0s;
+  opacity: 0.85;
+  cursor: pointer;
+}
+@media screen and (max-width: 425px) {
+  .formauth__main-form-button {
+    margin-top: 170px;
+    height: 46px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.formauth__main-form-button_disabled {
+  color: #000000;
+  border: 1px solid #000000;
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+.formauth__main-form-button_disabled:hover {
+  cursor: default;
+  opacity: 0.2;
+}
+
+.formauth__main-link-on-login_active {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 15px auto 80px auto;
+}
+.formauth__main-link-on-login_active:hover {
+  opacity: 0.6;
+  transition: 0.2s linear 0s;
+}
+.formauth__main-link-on-login_hidden {
+  display: none;
+}
+
+.formauth__main-form-input-error {
+  transition: opacity 0.5s;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #ffffff;
+  margin: 0;
+}
+
+.formauth__main-form-input-error_active {
+  opacity: 1;
+}

@@ -1,0 +1,11 @@
+.popup__title_edit-avatar {
+  margin: 0 0 58px 0;
+}
+@media screen and (max-width: 512px) {
+  .popup__title_edit-avatar {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 20px 0 36px 20px;
+    width: 185px;
+  }
+}

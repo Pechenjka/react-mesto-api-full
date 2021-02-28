@@ -1,0 +1,21 @@
+.profile__edit-avatar {
+  margin-right: 30px;
+  width: 120px;
+  height: 120px;
+}
+@media screen and (max-width: 920px) {
+  .profile__edit-avatar {
+    align-self: flex-end;
+  }
+}
+@media screen and (max-width: 602px) {
+  .profile__edit-avatar {
+    align-self: center;
+    margin: 0 0 10px;
+  }
+}
+.profile__edit-avatar:hover {
+  cursor: pointer;
+  border-radius: 60px;
+  background: url("../../../images/edit_avatar-icon.svg") no-repeat center;
+}

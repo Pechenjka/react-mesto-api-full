@@ -1,0 +1,15 @@
+.profile__author {
+  display: flex;
+  max-width: 100%;
+}
+@media screen and (max-width: 920px) {
+  .profile__author {
+    align-self: center;
+  }
+}
+@media screen and (max-width: 602px) {
+  .profile__author {
+    flex-direction: column;
+    width: 282px;
+  }
+}
