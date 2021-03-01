@@ -40,12 +40,12 @@ const App = () => {
     api
       .getUserInfo()
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser({ ...currentUser, res });
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [currentUser]);
   // Эффект загрузки карточек с сервера
   React.useEffect(() => {
     api

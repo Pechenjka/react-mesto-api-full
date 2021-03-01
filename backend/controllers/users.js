@@ -105,7 +105,6 @@ const updateUserAvatar = (req, res, next) => {
 
 module.exports = {
   getUsers,
-  // getUser,
   createUser,
   updateProfile,
   updateUserAvatar,
