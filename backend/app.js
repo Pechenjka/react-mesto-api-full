@@ -13,6 +13,7 @@ const router = require('./routes');
 
 const errorHandler = require('./middlewares/errorHandler');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
+const accessControlCors = require('./middlewares/accessControl');
 
 const app = express();
 
@@ -28,7 +29,7 @@ mongoose.connection.on('open', () => console.log('MongooseDB connection...'));
 const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
-
+app.use(accessControlCors);
 app.use(requestLogger);
 
 app.post('/signup', celebrate({
