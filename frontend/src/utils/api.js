@@ -116,7 +116,6 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.lobachev.students.nomoreparties.space',
   headers: {
-    authorization: 'fa53dc10-0bed-404e-84a8-68518d7f0629',
     'Content-Type': 'application/json',
   },
 });
