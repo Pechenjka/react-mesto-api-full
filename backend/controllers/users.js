@@ -12,20 +12,6 @@ const getUsers = (req, res, next) => {
     .catch(next);
 };
 
-// const getUser = (req, res) => {
-//   const { id } = req.params;
-//   User.findById(id)
-//     .orFail(new Error('Not found'))
-//     .then((user) => res.send({ data: user }))
-//     .catch((err) => {
-//       if (err.name === 'CastError' || err.message === 'Not found') {
-//         return res
-//           .status(404)
-//           .send({ message: `user not found with id: ${id}` });
-//       }
-//       return res.status(500).send({ message: err.message });
-//     });
-// };
 const getCurrentUser = (req, res, next) => {
   const { _id } = req.user;
   User.findById(_id)
