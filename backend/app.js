@@ -25,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 mongoose.connection.on('open', () => console.log('MongooseDB connection...'));
-app.use(cors)
+app.use(cors());
 const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
