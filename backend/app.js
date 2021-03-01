@@ -1,7 +1,7 @@
 const express = require('express');
 
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { errors, celebrate, Joi } = require('celebrate');
 
@@ -25,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 mongoose.connection.on('open', () => console.log('MongooseDB connection...'));
-
+app.use(cors)
 const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
