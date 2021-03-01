@@ -11,7 +11,7 @@ node_modules
 debug.log
 
 # production
-frontend/build
+build
 
 # testing
 /coverage
