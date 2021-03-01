@@ -120,7 +120,6 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.lobachev.students.nomoreparties.space',
   headers: {
-
     'Content-Type': 'application/json',
   },
 });
