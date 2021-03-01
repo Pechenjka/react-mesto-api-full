@@ -6,8 +6,10 @@ class Api {
   }
   // Запрос на сервер для получения данных пользователя
   getUserInfo() {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
+      authorization: `Bearer ${token}`,
     })
       .then((res) => {
         if (!res.ok) {
@@ -19,8 +21,10 @@ class Api {
   }
   // Запрос на сервер для получения карточек
   getInitialCards() {
+    const token = localStorage.getItem('jwt');
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
+      authorization: `Bearer ${token}`,
     })
       .then((res) => {
         if (!res.ok) {
@@ -116,6 +120,7 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.lobachev.students.nomoreparties.space',
   headers: {
+
     'Content-Type': 'application/json',
   },
 });
