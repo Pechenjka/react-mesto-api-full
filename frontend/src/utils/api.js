@@ -5,7 +5,7 @@ class Api {
     this._headers = options.headers;
   }
   // Запрос на сервер для получения данных пользователя
-  getUserInfo(token) {
+  getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: { ...this._headers, authorization: `Bearer ${localStorage.getItem('jwt')}` },
     })
