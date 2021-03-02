@@ -36,16 +36,16 @@ const App = () => {
 
   const history = useHistory();
   // Эффект монтирования данных пользователя
-  React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // React.useEffect(() => {
+  //   api
+  //     .getUserInfo()
+  //     .then((res) => {
+  //       setCurrentUser(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   // Эффект загрузки карточек с сервера
   React.useEffect(() => {
     api
@@ -213,6 +213,7 @@ const App = () => {
           throw new Error({ message: 'Не передано одно из полей' });
         }
         if (res.token) {
+          tokenCheck();
           setLoggedIn(true);
           localStorage.setItem('jwt', res.token);
           return res;
@@ -222,6 +223,25 @@ const App = () => {
         setIsLoading(false);
       });
   };
+  // const handleLogin = (values) => {
+  //   const { email, password } = values;
+  //   setIsLoading(true);
+  //   return auth
+  //     .authorization(email, password)
+  //     .then((res) => {
+  //       if (!res || res.statusCode === 400) {
+  //         throw new Error({ message: 'Не передано одно из полей' });
+  //       }
+  //       if (res.token) {
+  //         setLoggedIn(true);
+  //         localStorage.setItem('jwt', res.token);
+  //         return res;
+  //       }
+  //     })
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
 
   // Эффект установки действия токена на приложение
   React.useEffect(() => {
@@ -237,6 +257,9 @@ const App = () => {
     auth.getContent(jwt).then((res) => {
       if (res) {
         setLoggedIn(true);
+        api.getUserInfo().then((res) => {
+          setCurrentUser(res);
+        });
         history.push('/');
       }
       if (res.statusCode === 400) {
@@ -249,6 +272,22 @@ const App = () => {
       }
     });
   };
+  // const tokenCheck = (jwt) => {
+  //   auth.getContent(jwt).then((res) => {
+  //     if (res) {
+  //       setLoggedIn(true);
+  //       history.push('/');
+  //     }
+  //     if (res.statusCode === 400) {
+  //       throw new Error({
+  //         message: `Токен: ${jwt} не передан или передан не в том формате`,
+  //       });
+  //     }
+  //     if (res.statusCode === 401) {
+  //       throw new Error({ message: `Переданный токен: ${jwt} некорректен` });
+  //     }
+  //   });
+  // };
 
   // Обработчик выхода из профиля на страницу входа
   const handleSignOut = () => {

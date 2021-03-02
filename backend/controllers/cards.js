@@ -40,7 +40,7 @@ const putLikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(id, { $addToSet: { likes: _id } },
     { new: true })
     .orFail(() => { throw new NotFound('Документ не найден'); })
-    .then((like) => res.status(200).send(like))
+    .then((like) => res.send(like))
     .catch((err) => {
       if (err.name === 'CastError' || err.message === 'Not found') {
         throw new NotFound(`Нет пользователя с таким: ${id}`);
@@ -54,7 +54,7 @@ const deleteLikeCard = (req, res, next) => {
   const { id } = req.params;
   Card.findByIdAndUpdate(id, { $pull: { likes: _id } }, { new: true })
     .orFail(() => { throw new NotFound('Документ не найден'); })
-    .then((like) => res.status(200).send(like))
+    .then((dislike) => res.send(dislike))
     .catch((err) => {
       if (err.name === 'CastError' || err.message === 'Not found') {
         throw new NotFound(`Нет пользователя с таким: ${id}`);
