@@ -45,7 +45,7 @@ const App = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [currentUser]);
+  }, []);
   // Эффект загрузки карточек с сервера
   React.useEffect(() => {
     api
