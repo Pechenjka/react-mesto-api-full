@@ -40,7 +40,7 @@ const App = () => {
     api
       .getUserInfo()
       .then((res) => {
-        setCurrentUser({ ...currentUser, res });
+        setCurrentUser(res.data);
       })
       .catch((err) => {
         console.log(err);
