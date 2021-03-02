@@ -3,7 +3,7 @@ const Card = require('../models/card');
 
 const getCards = (req, res, next) => {
   Card.find({})
-    .populate(['owner', 'likes'])
+    .populate(['owner'])
     .then((cards) => res.send({ data: cards }))
     .catch(next);
 };

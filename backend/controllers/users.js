@@ -19,7 +19,7 @@ const getCurrentUser = (req, res, next) => {
       if (!user) {
         throw new NotFound(`Нет пользователя с таким: ${_id}`);
       }
-      return res.send({ data: user });
+      return res.send(user);
     })
     .catch(next);
 };
