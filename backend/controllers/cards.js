@@ -13,7 +13,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: _id })
     .then((card) => {
-      Card.fimdById(card._id)
+      Card.findById(card._id)
         .then((data) => res.status(200).send(data))
         .catch(() => {
           throw new NotFound('Карточка не найдена');
