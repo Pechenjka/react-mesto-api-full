@@ -215,6 +215,9 @@ const App = () => {
         if (res.token) {
           setLoggedIn(true);
           localStorage.setItem('jwt', res.token);
+          api.getUserInfo().then((res) => {
+            setCurrentUser(res);
+          });
           return res;
         }
       })
