@@ -2,7 +2,7 @@
 
 ### Социальная сеть: Место
 
-Сайт: http://lobachev.students.nomoreparties.space/
+Сайт: https://lobachev.students.nomoreparties.space/
 
 ### _Стек технологий_
 
