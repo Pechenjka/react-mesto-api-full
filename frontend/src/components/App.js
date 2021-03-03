@@ -213,7 +213,7 @@ const App = () => {
           throw new Error({ message: 'Не передано одно из полей' });
         }
         if (res.token) {
-          tokenCheck();
+          // tokenCheck();
           setLoggedIn(true);
           localStorage.setItem('jwt', res.token);
           return res;
