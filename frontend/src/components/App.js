@@ -35,17 +35,7 @@ const App = () => {
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
 
   const history = useHistory();
-  // Эффект монтирования данных пользователя
-  // React.useEffect(() => {
-  //   api
-  //     .getUserInfo()
-  //     .then((res) => {
-  //       setCurrentUser(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+
   // Эффект загрузки карточек с сервера
   React.useEffect(() => {
     api
@@ -57,6 +47,16 @@ const App = () => {
         console.log(err);
       });
   }, []);
+
+  // Эффект установки действия токена на приложение
+  React.useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      tokenCheck(jwt);
+    }
+    // eslint-disable-next-line
+  }, []);
+
   // Обработчики открытия модальных окон
   const handleEditAvatarClick = () => {
     setIsEditAvatarPopupOpen(true);
@@ -213,7 +213,6 @@ const App = () => {
           throw new Error({ message: 'Не передано одно из полей' });
         }
         if (res.token) {
-          // tokenCheck();
           setLoggedIn(true);
           localStorage.setItem('jwt', res.token);
           return res;
@@ -223,34 +222,6 @@ const App = () => {
         setIsLoading(false);
       });
   };
-  // const handleLogin = (values) => {
-  //   const { email, password } = values;
-  //   setIsLoading(true);
-  //   return auth
-  //     .authorization(email, password)
-  //     .then((res) => {
-  //       if (!res || res.statusCode === 400) {
-  //         throw new Error({ message: 'Не передано одно из полей' });
-  //       }
-  //       if (res.token) {
-  //         setLoggedIn(true);
-  //         localStorage.setItem('jwt', res.token);
-  //         return res;
-  //       }
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
-
-  // Эффект установки действия токена на приложение
-  React.useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      tokenCheck(jwt);
-    }
-    // eslint-disable-next-line
-  }, []);
 
   //Проверка токена
   const tokenCheck = (jwt) => {
@@ -272,22 +243,6 @@ const App = () => {
       }
     });
   };
-  // const tokenCheck = (jwt) => {
-  //   auth.getContent(jwt).then((res) => {
-  //     if (res) {
-  //       setLoggedIn(true);
-  //       history.push('/');
-  //     }
-  //     if (res.statusCode === 400) {
-  //       throw new Error({
-  //         message: `Токен: ${jwt} не передан или передан не в том формате`,
-  //       });
-  //     }
-  //     if (res.statusCode === 401) {
-  //       throw new Error({ message: `Переданный токен: ${jwt} некорректен` });
-  //     }
-  //   });
-  // };
 
   // Обработчик выхода из профиля на страницу входа
   const handleSignOut = () => {
