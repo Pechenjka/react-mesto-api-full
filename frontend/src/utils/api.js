@@ -99,7 +99,7 @@ class Api {
   }
   // Запрос на сервер для установки/снятия лайка карточке
   changeLikeCardStatus(card, isLiked) {
-    return fetch(`${this._baseUrl}/cards/likes/${card._id}`, {
+    return fetch(`${this._baseUrl}/cards/${card._id}/likes`, {
       method: `${isLiked ? 'DELETE' : 'PUT'}`,
       headers: { ...this._headers, authorization: `Bearer ${localStorage.getItem('jwt')}` },
     })
@@ -114,7 +114,6 @@ class Api {
 }
 
 const api = new Api({
-  // baseUrl: 'http://localhost:3000',
   baseUrl: 'https://api.lobachev.students.nomoreparties.space',
   headers: {
     'Content-Type': 'application/json',

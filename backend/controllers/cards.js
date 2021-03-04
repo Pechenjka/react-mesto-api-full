@@ -1,4 +1,4 @@
-const { BadRequest, NotFound } = require('../errors/index');
+const { BadRequest, NotFound, Forbidden } = require('../errors/index');
 const Card = require('../models/card');
 
 const getCards = (req, res, next) => {
@@ -31,11 +31,11 @@ const createCard = (req, res, next) => {
 const deleteCard = (req, res, next) => {
   const { id } = req.params;
   Card.findByIdAndRemove(id)
-    .orFail(new Error('Not found'))
+    .orFail(new NotFound(`Not found: ${id}`))
     .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'CastError' || err.message === 'Not found') {
-        throw new NotFound(`Нет пользователя с таким: ${id}`);
+        throw new Forbidden('Нет права на удаление чужой карточки');
       }
     })
     .catch(next);

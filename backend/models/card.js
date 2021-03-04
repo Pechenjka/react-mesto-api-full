@@ -1,21 +1,19 @@
 const mongoose = require('mongoose');
+const { default: validator } = require('validator');
 
 const useCard = new mongoose.Schema({
   name: {
     type: String,
-    requiared: true,
-    minlength: 2,
-    maxlength: 30,
+    requiared: [true, "Поле 'name' должно быть заполнено"],
+    minlength: [2, "Минимальная длина поля  'name' - 2"],
+    maxlength: [30, "Максимальная длина поля  'name' - 30"],
   },
   link: {
     type: String,
-    required: true,
+    required: [true, "Поле 'link' должно быть заполнено"],
     validate: {
-      validator: (v) => {
-        const regExp = /^((http|https):\/\/)?(www\.)?[a-zA-Z0-9-]{1,}\.?([a-z0-9]{1,})?\.([a-z0-9]{1,})?\.?\w{1,}?(\/([\w#!:.?+=&%@!\-/])*)?/;
-        return regExp.test(v);
-      },
-      message: 'enter URL',
+      validator: (v) => validator.isURL(v),
+      message: "Поле 'link' должно быть валидным url-адресом",
     },
   },
   owner: {

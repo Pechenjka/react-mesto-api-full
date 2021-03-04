@@ -1,16 +1,13 @@
 const express = require('express');
-
 const mongoose = require('mongoose');
 const cors = require('cors');
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const { errors, celebrate, Joi } = require('celebrate');
-
 const {
   createUser, login,
 } = require('./controllers/users');
-
 const router = require('./routes');
-
 const errorHandler = require('./middlewares/errorHandler');
 const { errorLogger, requestLogger } = require('./middlewares/logger');
 
@@ -30,7 +27,7 @@ app.use(cors());
 const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
-
+app.use(helmet());
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
