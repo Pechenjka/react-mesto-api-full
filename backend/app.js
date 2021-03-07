@@ -13,7 +13,9 @@ const { errorLogger, requestLogger } = require('./middlewares/logger');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/mestodb', {
+const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
@@ -23,8 +25,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 mongoose.connection.on('open', () => console.log('MongooseDB connection...'));
 
 app.use(cors());
-
-const { PORT = 3000 } = process.env;
 
 app.use(bodyParser.json());
 app.use(helmet());
