@@ -13,7 +13,7 @@ const { errorLogger, requestLogger } = require('./middlewares/logger');
 
 const app = express();
 
-const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3001, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
@@ -24,17 +24,10 @@ mongoose.connect(MONGO_URL, {
 
 mongoose.connection.on('open', () => console.log('MongooseDB connection...'));
 
-app.use(cors());
-
-app.use(bodyParser.json());
-app.use(helmet());
 app.use(requestLogger);
-
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
+app.use(helmet());
+app.use(cors());
+app.use(bodyParser.json());
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -51,11 +44,8 @@ app.post('/signin', celebrate({
 }), login);
 
 app.use('/', router);
-
 app.use(errorLogger);
-
 app.use(errors());
-
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Aplication is working on the port ${PORT}`));
