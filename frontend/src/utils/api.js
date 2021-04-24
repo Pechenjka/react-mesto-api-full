@@ -114,7 +114,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api.lobachev.students.nomoreparties.space',
+  baseUrl: 'https://api.lobachev.students.nomoredomains.rocks',
   headers: {
     'Content-Type': 'application/json',
   },
